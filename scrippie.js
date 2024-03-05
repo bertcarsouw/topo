@@ -77,7 +77,7 @@ const flash = (good) => {
     }
 
     setTimeout(() => {
-        document.body.style.backgroundColor = '#e27100';
+        document.body.style.backgroundColor = '#ff972f';
     }, 250);
 };
 
