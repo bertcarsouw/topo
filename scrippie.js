@@ -62,7 +62,7 @@ const setQuizInfo = (question, good, bad, left) => {
         <div class="good-bad">
             <span>Goed: <b>${good}</b></span>
             <span>Bad: <b>${bad}</b></span>
-            <span>Left: <b>${left}</b></span>
+            <span>No.: <b>${left}</b></span>
         </div>
     `;
 
@@ -90,7 +90,7 @@ const quiz = () => {
 
     let next = quizUnits.pop();
 
-    setQuizInfo(next, good, bad, `${total - quizUnits.length}/${total}`);
+    setQuizInfo(next, good, bad, `${total - quizUnits.length - 1}/${total}`);
 
     [...document.getElementsByTagName('path')].forEach((pathElement) => {
         pathElement.addEventListener('click', () => {
@@ -114,10 +114,10 @@ const quiz = () => {
             next = quizUnits.pop();
 
             if (next) {
-                setQuizInfo(next, good, bad, `${quizUnits.length}/${total}`);
+                setQuizInfo(next, good, bad, `${total - quizUnits.length - 1}/${total}`);
             } else {
                 // done
-                setQuizInfo('Done!', good, bad, `${quizUnits.length}/${total}`);
+                setQuizInfo('Done!', good, bad, `${total}/${total}`);
                 info.children[0].remove();
                 quizDone = true;
             }
